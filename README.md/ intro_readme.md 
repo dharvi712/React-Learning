@@ -1,0 +1,67 @@
+1.REACT js is a component based js library used to build dynamic and interactive user interfaces .it simplfies the creation of single-page applications with a focus on performance and maintainability.
+2.import React from 'react';
+
+function App() {
+  return (
+    <div>
+      <h1>Hello, World!</h1>
+    </div>
+  );
+}
+
+export default App;
+in this example:
+1 import React from'react':imports React to create components and use JSX
+2 function App():
+Defines a functional component called App.
+3 return():Returns JSX that represents the UI (a div with an h1 tag displaying "hello,world").
+4 export default App:Exports the App component so it can be used elsewhere.
+3.# WORKING OF REACT:
+react operates by creating an in-memory virtual DOM rather than directly 
+manipulating the browser's DOM.it performs necessary manipulations within this virtual representatioin before applying changes to the acrual browser DOM.
+4. 1. Actual DOM and Virtual DOM
+
+    Initially, there is an Actual DOM(Real DOM) containing a div with two child elements: h1 and h2.
+    React maintains a previous Virtual DOM to track the UI state before any updat
+    2. Detecting Changes
+
+     When a change occurs (e.g., adding a new h3 element), React generates a New Virtual DOM.
+     React compares the previous Virtual DOM with the New Virtual DOM using a process called reconciliation(Reconciliation is the process React
+     uses to figure out how to efficiently updte the DOM when changes occur in the UI).
+          #How ReactJS Reconciliation Works:
+            1.Render Phase 
+               - React calls the Render().method of a component togeneratea new virtual DOM representatiom.
+               - this new Virtual DOM is compared with the previous virtaul DOM snapshot.
+            2. Diffing Algorithm
+               - React compares the old and new virtual DOM trees to determine the differences.
+               - instead of re-rendering the entire UI ,React updates only the changed nodes.
+            3. Commit phase 
+               - Once the differenes are determined,React applies the updates to the real DOM in the 
+                 most  efficient way.
+               - React batches updates and minimizes reflows and repaints for better performance     
+
+    3. Efficient DOM Update
+
+    React identifies the differences (in this case, the new h3 element).
+    Instead of updating the entire DOM, React updates only the changed part in the New Actual DOM, making the update process more efficient.
+5. One-Way Data Binding
+
+React uses one-way data binding, meaning data flows in a single direction from parent components to child 
+components via props. This provides better control over data and helps maintain predictable behavior.
+6. State Management 
+    React manages component state efficiently using the useState hook or this.state(for class components).State allows dynamic 
+    updates without reloading the page.
+              1. useState hook
+                 the useState hook is a function that allows you to add state to a functional
+                 component .it is an alternative to useReducer hook that is preffered when we require the basic 
+                 update. useState Hooks are used to add the state variables in the components. For using the useState hook we have
+                  to import it in the component.
+                  SYNTAX: const[ state,setState]=useState(initialState)
+                         -state:it is the value of the cirrent state.
+                         -setState:it is the function that is used to upddate the state.
+                         -initialState:it is the initial value of the state.
+                2. WORKING:
+                  1. initialie state:when you call useState(initialValue),it creates a state variable and an updater function.
+                           
+
+
