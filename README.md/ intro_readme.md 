@@ -57,11 +57,70 @@ components via props. This provides better control over data and helps maintain 
                  update. useState Hooks are used to add the state variables in the components. For using the useState hook we have
                   to import it in the component.
                   SYNTAX: const[ state,setState]=useState(initialState)
-                         -state:it is the value of the cirrent state.
+                         -state:it is the value of the current state.
                          -setState:it is the function that is used to upddate the state.
                          -initialState:it is the initial value of the state.
                 2. WORKING:
                   1. initialie state:when you call useState(initialValue),it creates a state variable and an updater function.
-                           
-
+                   const[count,setCount]=useState(0);
+                  2.State is preserved Across Renders:React remembers the state value between re-renders of the components.
+                  Each time the component renders,React keeps the latest value of count.
+                  3. State Updates with the Updater Function:when you call setCount React updates the state and it 
+                  re-renders the components to reflect the new start.
+                           <button onClick={() => setCount(count + 1)}>Increment</button>
+                  4. Triggers Re-render:react will re-render only the component where useState was-ensuring
+                  your UI updates automatically when the state changes.
+                3.IMPLEMENTATION:
+                   1. Counter using useState:
+                      A common example of using useState is managing the state of a counter 
+                      with actions to increment and decrement the value.
+                         import{useState} from 'react';
+                         export default function Counter(){
+                          const [count,setCount]=useState(0);
+                          function handleClick(){
+                            setCount(count+1);
+                          }
+                          return(
+                            <button onclick={handleClick}>
+                            click{count}meaning</button>
+                          );
+                         }
+                      2.Managing Form Input State:
+                      import React,{useState } from 'react';
+                      function Form(){
+                        const[name,setName]=useState('');
+                        const [age,setAge]=useState('');
+                        const[submitted,setSubmitted]=useState(false);
+                        const handleSubmit=()=>{
+                          setSubmitted(true);
+                        };
+                        return(
+                          <div>
+                          <input 
+                             type="text"
+                             value={name}
+                             inchange={(e)=> setName(e.target.value)}
+                             placeholder="enter your name" />
+                             /*  onChange={(e): setName(e.target.value)}: Updates name state as the user types. */
+                             <input
+                            type="number"
+                            value={age}
+                            onChange={(e) => setAge(e.target.value)}
+                            /* onChange={(e): setAge(e.target.value)}: Updates age state as the user types.*/
+                            placeholder="Enter your age"
+                                  />
+                                  <button onClick={handleSubmit}>submit</button>
+                                  {submitted && <p> Form Submitted!</p>}
+                                  /* 
+                                  This means:
+                                If submitted === true → show the message
+                                 If false → show nothing
+                                 This is called conditional rendering*/
+                                  </div>
+                        );
+                      }
+                      export default Form;
+                  4. WHEN TO USE useState:
+                     we should use the useState :
+                     
 
